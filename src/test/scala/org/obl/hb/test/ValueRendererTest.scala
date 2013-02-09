@@ -2,6 +2,7 @@ package org.obl.hb.test
 
 import org.junit.Test
 import junit.framework.Assert._
+import org.obl.hb.AttributeRenderer
 import org.obl.hb.ValueRenderer
 
 class ValueRendererTest {
@@ -19,12 +20,13 @@ class ValueRendererTest {
       "\"ks&quot;ks\'kd\"")
 
      inp.zip(exp).foreach { p =>
-       assertEquals(p._2, ValueRenderer.quote(p._1))  
+       assertEquals(p._2, AttributeRenderer.quote(p._1))  
      }
   }
   
   object MyEnum extends Enumeration {
-    val prop_1, prop2 = Value
+    val prop_1 = Value("prop-1")
+    val prop2 = Value
   }
   
   class MyClass extends ValueRenderer {
@@ -33,14 +35,14 @@ class ValueRendererTest {
   
   @Test
   def testRender = {
-    assertEquals("", ValueRenderer.render(true))
-    assertEquals("", ValueRenderer.render(false))
-    assertEquals("prop-1", ValueRenderer.render(MyEnum.prop_1))
-    assertEquals("prop2", ValueRenderer.render(MyEnum.prop2))
-    assertEquals("a", ValueRenderer.render("a"))
-    assertEquals("1", ValueRenderer.render(1))
-    assertEquals("1.0", ValueRenderer.render(1.0))
-    assertEquals("custom rendered", ValueRenderer.render(new MyClass))
+    assertEquals("", AttributeRenderer.render(true))
+    assertEquals("", AttributeRenderer.render(false))
+    assertEquals("prop-1", AttributeRenderer.render(MyEnum.prop_1))
+    assertEquals("prop2", AttributeRenderer.render(MyEnum.prop2))
+    assertEquals("a", AttributeRenderer.render("a"))
+    assertEquals("1", AttributeRenderer.render(1))
+    assertEquals("1.0", AttributeRenderer.render(1.0))
+    assertEquals("custom rendered", AttributeRenderer.render(new MyClass))
     
     
   }

@@ -8,7 +8,7 @@ import org.obl.hb._
 trait CssValue[+T] extends ValueRenderer
 
 trait CssValueFactory[C[X] <: CssValue[X]] {
-  def defaultFormatter[T]:T => String = (t:T) => ValueRenderer.render(t)
+  def defaultFormatter[T]:T => String = (t:T) => AttributeRenderer.render(t)
   
   implicit def fromT[T](t:T):C[T] = create[T](Some(t), defaultFormatter)
   implicit def fromListT[T](t:List[T]):C[List[T]] = create[List[T]](Some(t), p => p.map(defaultFormatter(_)).mkString(" ") )

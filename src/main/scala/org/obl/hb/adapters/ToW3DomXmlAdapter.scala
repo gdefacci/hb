@@ -1,6 +1,7 @@
 package org.obl.hb.adapters
 
-import org.obl.hb.{ToXmlAdapter, Elem, ValueRenderer, Text, ElemSeq, HtmlModel}
+import org.obl.hb.{ToXmlAdapter, Elem, Text, ElemSeq, HtmlModel}
+import org.obl.hb.AttributeRenderer.render
 import javax.xml.parsers.DocumentBuilderFactory
 
 import org.w3c.dom._
@@ -29,7 +30,7 @@ object ToW3DomXmlAdapter extends ToXmlAdapter[Document] {
   def apply(doc:Document, elem:Elem):Element = {
     val el = doc.createElement(elem.name)
     elem.attributes.foreach { attr =>
-      el.setAttribute(attr._1, ValueRenderer.render(attr._2))
+      el.setAttribute(attr._1, render(attr._2))
     }
     elem.children.foreach { ch =>
       append(doc, el, ch)

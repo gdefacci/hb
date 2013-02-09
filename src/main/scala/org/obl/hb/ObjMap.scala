@@ -10,7 +10,7 @@ abstract class OptionalAttributes[A](implicit tt: TypeTag[A], ct: ClassTag[A]) e
   def render:String = {
     val vrs = ObjMap.vars[A](this) 
     vrs.filter( e => !ObjMap.isDefault(e._2) ).map { e =>
-      AttributeRenderer.attrKey(e._1, e._2) + ":" + ValueRenderer.render(e._2)
+      AttributeRenderer.attrKey(e._1, e._2) + ":" + AttributeRenderer.render(e._2)
     }.mkString(";")
   }
   

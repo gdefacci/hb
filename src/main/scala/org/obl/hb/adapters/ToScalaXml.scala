@@ -6,7 +6,7 @@ import org.obl.hb.AttributeRenderer
 import scala.xml.MetaData
 import scala.xml.UnprefixedAttribute
 import org.obl.hb.ObjMap
-import org.obl.hb.ValueRenderer
+import org.obl.hb.AttributeRenderer.render
 
 object ToScalaXml extends ToXmlAdapter[xml.Document] {
   
@@ -37,7 +37,7 @@ object ToScalaXml extends ToXmlAdapter[xml.Document] {
       val hd = lst.head
       val rest = lst.tail
       if (ObjMap.isDefault(hd._2)) attributes(rest)
-      else new UnprefixedAttribute(AttributeRenderer.attrKey(hd._1, hd._2), ValueRenderer.render(hd._2), attributes(rest))
+      else new UnprefixedAttribute(AttributeRenderer.attrKey(hd._1, hd._2), render(hd._2), attributes(rest))
     }
   }
   
