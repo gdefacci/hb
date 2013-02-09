@@ -69,7 +69,8 @@ object FontStyleEnum extends Enumeration {
 }
 
 object FontVariantEnum extends Enumeration {
-  val normal, small_caps = Value
+  val normal = Value
+  val small_caps = Value("small-caps")
 }
 
 object FontWeightEnum extends Enumeration {
@@ -123,9 +124,18 @@ object ClearEnum extends Enumeration {
 }
 
 object DisplayEnum extends Enumeration {
-  val inline, block, list_item, run_in, compact, marker, table, inline_table, 
-  table_row_group, table_header_group, table_footer_group, table_row, 
-  table_column_group, table_column, table_cell, table_caption = Value
+  val inline, block, compact, marker, table = Value 
+  val run_in = Value("run-in"          )
+  val list_item              = Value("list-item"          )
+val inline_table           = Value("inline-table"       )
+val table_row_group        = Value("table-row-group"    )
+val table_header_group     = Value("table-header-group" )
+val table_footer_group     = Value("table-footer-group" )
+val table_row              = Value("table-row"          )
+val table_column_group     = Value("table-column-group" )
+val table_column           = Value("table-column"       )
+val table_cell             = Value("table-cell"         )
+val table_caption          = Value("table-caption"      )
 }
 
 object EmptyCellsEnum extends Enumeration {
@@ -178,7 +188,18 @@ object ListStylePositionEnum extends Enumeration {
 }
 
 object ListStyleTypeEnum extends Enumeration {
-  val disc, circle, square, decimal, decimal_leading_zero, lower_roman, upper_roman, lower_greek, lower_alpha, lower_latin, upper_alpha, upper_latin, hebrew, armenian, georgian, cjk_ideographic, hiragana, katakana, hiragana_iroha, katakana_iroha = Value
+  val disc, circle, square, decimal, hebrew, armenian, georgian, hiragana, katakana = Value 
+  val decimal_leading_zero  = Value("decimal-leading-zero")
+val lower_roman           = Value("lower-roman")
+val upper_roman           = Value("upper-roman")
+val lower_greek           = Value("lower-greek")
+val lower_alpha           = Value("lower-alpha")
+val lower_latin           = Value("lower-latin")
+val upper_alpha           = Value("upper-alpha")
+val upper_latin           = Value("upper-latin")
+val cjk_ideographic       = Value("cjk-ideographic")
+val hiragana_iroha        = Value("hiragana-iroha")
+val katakana_iroha        = Value("katakana-iroha")
 }
 
 object MarksEnum extends Enumeration {
@@ -264,7 +285,8 @@ object TextAlignEnum extends Enumeration {
 }
 
 object TextDecorationEnum extends Enumeration {
-  val underline, overline, line_through, blink = Value
+  val underline, overline, blink = Value
+  val line_through = Value("line-through")
 }
 
 object TextTransformEnum extends Enumeration {

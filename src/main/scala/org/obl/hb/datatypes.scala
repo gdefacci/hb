@@ -9,7 +9,8 @@ object TranslateEnum extends Enumeration {
 }
 
 object InputTypeEnum extends Enumeration {
-  val text, hidden, search, tel, url, email, password, datetime, date, month, week, time, datetime_local, number, range, color, checkbox, radio, file, submit, image, reset, button = Value
+  val text, hidden, search, tel, url, email, password, datetime, date, month, week, time, number, range, color, checkbox, radio, file, submit, image, reset, button = Value
+  val datetime_local = Value("datetime-local")
 }
 
 object AutocompleteEnum extends Enumeration {
@@ -52,7 +53,10 @@ object ListMarkerTypeEnum extends Enumeration {
 }
 
 object SandboxEnum extends Enumeration {
-  val allow_forms, allow_same_origin, allow_scripts, allow_top_navigation = Value
+  val allow_forms = Value("allow-forms")
+  val allow_same_origin = Value("allow-same-origin")
+  val allow_scripts = Value("allow-scripts")
+  val allow_top_navigation = Value("allow-top-navigation")
 }
 
 object PreloadEnum extends Enumeration {
@@ -72,7 +76,10 @@ object ThScopeEnum extends Enumeration {
 }
 
 object InputModeEnum extends Enumeration {
-  val verbatim, latin, latin_name, latin_prose, full_width_latin, kana, katakana, numeric, tel, email, url = Value
+  val verbatim, latin, kana, katakana, numeric, tel, email, url = Value
+  val latin_name = Value("latin-name")
+  val latin_prose= Value("latin-prose")
+  val full_width_latin = Value("full-width-latin")
 }
 
 object ButtonTypeEnum extends Enumeration {
@@ -96,5 +103,6 @@ object CommandTypeEnum extends Enumeration {
 }
 
 object CorsSettingsEnum extends Enumeration {
-  val anonymous, use_credentials = Value
+  val anonymous = Value
+  val use_credentials = Value("use-credentials")
 }

@@ -26,12 +26,7 @@ object ValueRenderer {
 
   def render(a: Any): String = a match {
     case ar: ValueRenderer => ar.render
-//    case x if isDefault(x) => "" // FIXME valutare se e' possbile rimuovere
-    case s: String => s
-    case s: Char => s.toString
-    case x @ (_: Int, _: Short, _: Byte, _:Double, _:Float) => x.toString
     case _: Boolean => ""
-    case x: Enumeration#Value => x.toString.replaceAll("_", "-")
     case x => x.toString
   }
 
